@@ -1,13 +1,17 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { MatchUser } from "src/match-user/match-user.entity";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Match {
     @PrimaryGeneratedColumn()
-    matchId: number;
+    matchId: number; 
+
+    @ManyToOne(() => MatchUser, (matchuser) => matchuser.matchId, {onDelete: 'CASCADE'})
+    matchuser: MatchUser;
 
     @Column()
-    ownerId: number
+    ownerId: number;
 
     @Column()
-    partnerId: number
+    partnerId: number;
 }

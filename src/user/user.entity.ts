@@ -1,4 +1,8 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { MatchUser } from "src/match-user/match-user.entity"
+import { Posts } from "src/post/post.entity"
+import { Comment } from "src/comment/comment.entity"
+import { Like } from "src/like/like.entity"
 
 @Entity()
 export class User {
@@ -9,60 +13,71 @@ export class User {
     username: string;
 
     @Column()
-    email: string
+    email: string;
 
     @Column()
-    firstname: string
+    firstname: string;
 
     @Column()
-    lastname: string
+    lastname: string;
 
     @Column()
-    birthDate: Date
+    birthDate: Date;
 
     @Column()
-    idCard: string
+    idCard: string;
 
     @Column()
-    tel: string
+    tel: string;
 
     @Column()
-    gender: string
+    gender: string;
 
     @Column()
-    targetGender: string
+    targetGender: string;
 
     @Column()
-    sexualOrientation: string
+    sexualOrientation: string;
 
     @Column()
-    password: string
+    password: string;
 
     @Column()
-    height: number
+    height: number;
 
     @Column()
-    weight: number
+    weight: number;
 
     @Column({ nullable: true })
-    penisLenght: number
+    penisLenght: number;
 
     @Column({ nullable: true })
-    penisGirth: number
+    penisGirth: number;
 
     @Column({ nullable: true })
-    breastSize: number
+    breastSize: number;
 
     @Column({ nullable: true })
-    waistSize: number
+    waistSize: number;
 
     @Column({ nullable: true })
-    hipSize: number
+    hipSize: number;
 
     @CreateDateColumn()
-    created: Date
+    created: Date;
 
     @UpdateDateColumn()
-    updated: Date
+    updated: Date;
 
+    @OneToMany(() => MatchUser, (matchUser) => matchUser.userId)
+    matchUser: MatchUser[];
+
+    @OneToMany(() => Posts, (post) => post.ownerID)
+    post: Posts[];
+
+    @OneToMany(() => Comment, (comment) => comment.commentatorId)
+    comment: Comment[];
+
+    @OneToMany(() => Like, (like) => like.userId,)
+    like: Like[];
 }

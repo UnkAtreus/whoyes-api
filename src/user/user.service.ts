@@ -35,4 +35,15 @@ export class UserService {
         }
     }
 
+    async getUserByUser(username: string): Promise<User> {
+        try {
+            const user = this.userRepository.findOne({ where: { username } })
+            return user
+        } catch (error) {
+            throw new NotFoundException({
+                message: ['user not found'],
+            });
+        }
+    }
+
 }

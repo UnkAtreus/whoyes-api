@@ -1,0 +1,30 @@
+version: '3'
+services:
+  
+  database:
+    image: 'postgres'
+    container_name: database-postgres
+    volumes:
+      - ./postgresData:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=WhoYes
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345678
+
+  backend:
+    build: ./
+    container_name: backend-nestjs
+    environment:
+      - POSTGRES_DB=WhoYes
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345678
+    command: npm run start:dev
+    ports:
+      - 8000:8000
+    depends_on:
+      - database
+
+volumes:
+  postgresData:

@@ -10,7 +10,7 @@ export class Posts {
     @PrimaryGeneratedColumn()
     postId: number;
 
-    @ManyToOne(() => MatchUser, (matchuser) => matchuser.postId, {onDelete: 'CASCADE'})
+    @OneToMany(() => MatchUser, (matchuser) => matchuser.postId)
     matchuser: MatchUser;
 
     @Column()

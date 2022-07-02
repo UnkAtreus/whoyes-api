@@ -10,6 +10,7 @@ import { CommentModule } from './comment/comment.module';
 import { LikeModule } from './like/like.module';
 import { MatchUserModule } from './match-user/match-user.module';
 import { SexTypeModule } from './sex-type/sex-type.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [UserModule,
@@ -33,6 +34,7 @@ import { SexTypeModule } from './sex-type/sex-type.module';
     LikeModule,
     MatchUserModule,
     SexTypeModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

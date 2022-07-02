@@ -7,15 +7,19 @@ import { UserModule } from './user/user.module';
 
 @Module({
   imports: [UserModule,
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'WhoYes',
-      entities: [User],
-      synchronize: true,
+    TypeOrmModule.forRootAsync({
+      useFactory: async () => {
+        return {
+          type: 'postgres',
+          host: 'localhost',
+          port: 5432,
+          username: 'postgres',
+          password: '12345678',
+          database: 'WhoYes',
+          entities: [User],
+          synchronize: true,
+        }
+      }
     }),
   ],
   controllers: [AppController],

@@ -1,4 +1,4 @@
-import { IsEmpty } from "class-validator";
+import { IsEmpty, IsOptional } from "class-validator";
 
 
 export class SignUpDto {
@@ -38,20 +38,20 @@ export class SignUpDto {
     @IsEmpty()
     weight: number
 
-    @IsEmpty()
-    penisLenght: number
+    @IsOptional()
+    penisLenght?: number
 
-    @IsEmpty()
-    penisGirth: number
+    @IsOptional()
+    penisGirth?: number
 
-    @IsEmpty()
-    breastSize: number
+    @IsOptional()
+    breastSize?: number
 
-    @IsEmpty()
-    waistSize: number
+    @IsOptional()
+    waistSize?: number
 
-    @IsEmpty()
-    hipSize: number
+    @IsOptional()
+    hipSize?: number
 
     @IsEmpty()
     password: string

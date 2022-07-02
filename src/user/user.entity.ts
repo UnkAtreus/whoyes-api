@@ -44,19 +44,19 @@ export class User {
     @Column()
     weight: number
 
-    @Column()
+    @Column({ nullable: true })
     penisLenght: number
 
-    @Column()
+    @Column({ nullable: true })
     penisGirth: number
 
-    @Column()
+    @Column({ nullable: true })
     breastSize: number
 
-    @Column()
+    @Column({ nullable: true })
     waistSize: number
 
-    @Column()
+    @Column({ nullable: true })
     hipSize: number
 
     @CreateDateColumn()

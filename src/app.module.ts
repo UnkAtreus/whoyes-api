@@ -18,7 +18,7 @@ import { AuthModule } from './auth/auth.module';
       useFactory: async () => {
         return {
           type: 'postgres',
-          host: 'localhost',
+          host: 'localhost', //whoyes-api_db_1
           port: 5432,
           username: 'postgres',
           password: '12345678',

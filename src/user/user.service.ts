@@ -26,7 +26,6 @@ export class UserService {
 
     async getUserById(id: number): Promise<User> {
         try {
-            console.log("This");
             const user = this.userRepository.findOne({ where: { id } })
             return user
         } catch (error) {

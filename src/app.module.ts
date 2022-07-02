@@ -5,6 +5,11 @@ import { AppService } from './app.service';
 import { User } from './user/user.entity';
 import { UserModule } from './user/user.module';
 import { MatchModule } from './match/match.module';
+import { PostModule } from './post/post.module';
+import { CommentModule } from './comment/comment.module';
+import { LikeModule } from './like/like.module';
+import { MatchUserModule } from './match-user/match-user.module';
+import { SexTypeModule } from './sex-type/sex-type.module';
 
 @Module({
   imports: [UserModule,
@@ -23,6 +28,11 @@ import { MatchModule } from './match/match.module';
       }
     }),
     MatchModule,
+    PostModule,
+    CommentModule,
+    LikeModule,
+    MatchUserModule,
+    SexTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
